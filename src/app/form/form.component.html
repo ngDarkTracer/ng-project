@@ -1,0 +1,23 @@
+<div class="centering">
+  <div>
+    <form class="form-style" (ngSubmit)="onSubmit()" [formGroup]="dataForm">
+      <mat-form-field class="full-width">
+        <mat-label>Name</mat-label>
+        <input type="text" matInput formControlName="name" placeholder="John">
+        <mat-error>Name is <strong>required</strong></mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <mat-label>surname</mat-label>
+        <input type="text" matInput formControlName="surname" placeholder="Doe">
+        <mat-error>Surname is <strong>required</strong></mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput formControlName="email" placeholder="John@Doe.com">
+        <mat-error *ngIf="dataForm.get('email')?.hasError('email') && !dataForm.get('email')?.hasError('required')">The email address is invalid</mat-error>
+        <mat-error *ngIf="dataForm.get('email')?.hasError('required')">Email adress is <strong>required</strong></mat-error>
+      </mat-form-field>
+      <button type="submit" mat-raised-button color="accent" [disabled]="dataForm.invalid">Save</button>
+    </form>
+  </div>
+</div>

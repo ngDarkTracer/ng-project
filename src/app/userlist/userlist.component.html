@@ -1,0 +1,19 @@
+<div class="centering">
+  <div *ngFor="let user of users">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>User {{ user?.id + 1 }}</mat-card-title>
+        <mat-card-subtitle>
+          <div>Name: {{user?.name}}</div>
+          <div>Surname: {{user?.surname}}</div>
+          <div>Email: {{user?.email}}</div>
+        </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-actions>
+        <button mat-raised-button style="margin-right: 10px" (click)="openEditDialog(user)">Edit</button>
+        <button mat-raised-button color="warn" (click)="openDeleteDialog(user.id)">Delete</button>
+      </mat-card-actions>
+    </mat-card>
+    <br>
+  </div>
+</div>
